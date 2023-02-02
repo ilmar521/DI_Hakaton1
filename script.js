@@ -140,10 +140,12 @@ function newGame() {
     clearCards();
     resultSection.classList.toggle('hide');
     startButton.classList.toggle('hide');
+    buttonNext.classList.toggle('hide');
 }
 
 
 function flipCard(event) {
+    if (this.classList.contains('flip')) return;
     if (lockBoard) return;
     if (this === pickCard) return;
 
@@ -175,7 +177,7 @@ function flipCard(event) {
                 } 
             } else {
                 findMatches3 += 1;
-                if (findMatches3 == 16 {
+                if (findMatches3 == 16) {
                     totalScore += score3;
                     scoreTitle.innerHTML = 'Your level score: ' + score3;
                     totalScoreTitle.innerHTML = 'Your total score: ' + totalScore;
